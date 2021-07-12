@@ -1,0 +1,24 @@
+<%- include("partials/header"); -%>
+<style>
+  .title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+  h4{
+    padding-top: 1em;
+    text-align: right;
+  }
+
+    .content{
+      white-space: pre-line;
+      font-family: 'Roboto', sans-serif;
+    }
+    .name {
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
+  <h1 class="show title"><%=title%></h1>
+  <p class="content show"><%=content%></p>
+  <h4 class="name">- <%=name%><h4>
+<% include ./partials/comment %>
+<%- include("partials/footer"); -%>

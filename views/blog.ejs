@@ -1,0 +1,77 @@
+<%- include("partials/header"); -%>
+
+<style>
+  .title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    display: inline;
+  }
+
+  .post {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
+  }
+
+  a,
+  a:hover,
+  a:visited,
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
+
+  .name {
+    font-family: 'Open Sans', sans-serif;
+    display: inline;
+  }
+
+  .fixed-btn {
+    position: fixed;
+    bottom: 10%;
+    right: 3%;
+    background: #FFF;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    box-shadow: 4px 4px 4px #949494;
+    /* cursor: pointer; */
+  }
+
+  .fa-plus {
+    line-height: 50px;
+    color: #1abc9c;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: bottom;
+  }
+  .fixed-btn:hover{
+    background-color: #e2e2e2;
+  }
+  .fixed-btn:active {
+    box-shadow: 0 0;
+  }
+</style>
+<%  posts.forEach(function(post){ %>
+<br />
+<h1 class="title"><a href="/posts/<%=post._id%>"><%=post.title%>┊</a></h1>
+<h2 class="name">By <%=post.name%></h2>
+<% if(post.content.length < 100) {%>
+<p class="post">
+  <%=post.content%>
+</p>
+<%}else{%>
+<p class="post">
+
+
+  <%=post.content.substring(0, 345) + " ...."%>
+</p>
+<%}%>
+
+    <% }) %>
+
+<div class="fixed-btn">
+  <a href="/compose"><i class="fas fa-plus fa-2x"></i></a>
+</div>
+
+<%- include("partials/footer"); -%>
